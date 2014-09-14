@@ -47,6 +47,6 @@ int main()
     if (p.maxDist() >= HALFCIRCL)
       cnt++;
   }
-  std::cout << "The probability of three points on the same half circle is " << 0.1*cnt/NUMTRY
+  std::cout << "The probability of three points on the same half circle is " << 1.0*cnt/NUMTRY
     << std::endl;
 }
