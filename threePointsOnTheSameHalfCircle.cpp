@@ -4,6 +4,10 @@
 #include <algorithm>
 #include <iostream>
 
+const static int CIRCLELEN = 2;
+const static int NUMPOINTS = 3;
+#define GP gen(CIRCLELEN)
+
 class Points 
 {
   double a, b, c;  
@@ -13,24 +17,22 @@ class Points
     std::mt19937 gen(rd());
     std::uniform_real_distribution<> dis(0, x);
     return dis(gen);
-  }
+  }  
   double max(double x, double y, double z) 
   {
     return ((x)>(y)?(x):(y))>(z)?((x)>(y)?(x):(y)):(z);
   }
-  
+
 public:
-  Points() :a(gen(2)), b(gen(2)), c(gen(2)) {}
-  float maxDist() 
+  Points() : a(GP), b(GP), c(GP) {}
+  double maxDist() 
   {
-    std::vector<double> list;
-    list.push_back(a);
-    list.push_back(b);
-    list.push_back(c);
-    sort(list.begin(), list.end());
+    double points[] = {a, b, c};
+    std::vector<double> list (points, points + NUMPOINTS);
+    std::sort(list.begin(), list.end());
     return max(list[1] - list[0],
                list[2] - list[1],
-               list[0] - list[2] + 2);
+               list[0] - list[2] + CIRCLELEN);
   }
 };
 
