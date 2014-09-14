@@ -5,6 +5,7 @@
 #include <iostream>
 
 const static int CIRCLELEN = 2;
+const static int HALFCIRCL = CIRCLELEN/2;
 const static int NUMPOINTS = 3;
 #define GP gen(CIRCLELEN)
 
@@ -43,7 +44,7 @@ int main()
   for (int i = 1; i <= NUMTRY; ++i)
   {
     Points p;
-    if (p.maxDist() >= 1)
+    if (p.maxDist() >= HALFCIRCL)
       cnt++;
   }
   std::cout << "The probability of three points on the same half circle is " << 0.1*cnt/NUMTRY
