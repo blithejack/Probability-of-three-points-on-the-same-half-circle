@@ -29,11 +29,11 @@ public:
   double maxDist() 
   {
     double points[] = {a, b, c};
-    std::vector<double> points (points, points + NUMPOINTS);
-    std::sort(points.begin(), points.end());
-    return max(points[1] - points[0],
-               points[2] - points[1],
-               points[0] - points[2] + CIRCLELEN);
+    std::vector<double> vp (points, points + NUMPOINTS);
+    std::sort(vp.begin(), vp.end());
+    return max(vp[1] - vp[0],
+               vp[2] - vp[1],
+               vp[0] - vp[2] + CIRCLELEN);
   }
 };
 
